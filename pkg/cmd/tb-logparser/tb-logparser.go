@@ -46,14 +46,9 @@ func init() {
 
 func readHosts() {
 	if len(hosts) == 0 && !Local {
-		fmt.Println("Types hosts, for finish type Enter")
 		in := bufio.NewScanner(os.Stdin)
 		for in.Scan() {
 			line := in.Text()
-			if len(line) == 0 {
-				println("Ok")
-				break
-			}
 			hosts = append(hosts, line)
 		}
 		if err := in.Err(); err != nil {
