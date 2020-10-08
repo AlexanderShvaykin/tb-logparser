@@ -57,7 +57,7 @@ func localGrep(pattern string, printer printer) {
 
 			scanner := bufio.NewScanner(f)
 			buf := make([]byte, 0, 64*1024)
-			scanner.Buffer(buf, 1024*1024)
+			scanner.Buffer(buf, 2*(1024*1024))
 			for scanner.Scan() {
 				text := strings.TrimSpace(scanner.Text())
 				re := regexp.MustCompile(pattern)
